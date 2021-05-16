@@ -2,8 +2,10 @@
 
 ## Try It: https://shshoppies.netlify.app
 
-<p>This is my submission for the Shopify Fall 2021 Front End Developer Challenge.</p>
+<p>This is started as my submission for the Shopify Fall 2021 Front End Developer Challenge.</p>
 <p>It is a web app that allows users to search and nominate movies.</p>
+<p>Had alot of fun building the draggable feature and realized there was much more potential.</p>
+<p>Currently learning Ruby on Rails to add alot more features like comparing nominations to determine a common movie to watch.</p>
 <p>I had alot of fun building this! Thank you for checking it out!</p>
 
 Technical Requirements
