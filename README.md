@@ -1,6 +1,7 @@
 # The Shoppies
 
 ## Try It: https://shshoppies.netlify.app
+Video Demo: https://youtu.be/k3bCMRSJlK0
 
 <p>This is started as my submission for the Shopify Fall 2021 Front End Developer Challenge.</p>
 <p>It is a web app that allows users to search and nominate movies.</p>
