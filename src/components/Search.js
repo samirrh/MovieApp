@@ -11,7 +11,7 @@ function Search({ toParent }) {
     e.preventDefault();
 
     const API_KEY = process.env.REACT_APP_API_KEY; // from .env
-    const url = `https://www.omdbapi.com/?apikey=${API_KEY}&s=${query}&type=movie`;
+    const url = `https://www.omdbapi.com/?apikey=${API_KEY}&s=${query.trim()}&type=movie`;
     const res = await fetch(url);
     const resData = await res.json();
 
@@ -49,7 +49,7 @@ function Search({ toParent }) {
       </Text>
       <form onSubmit={handleClick}>
         <div>
-          <SimpleGrid minChildWidth="300px" spacing="20px">
+          <SimpleGrid minChildWidth="1" spacing="3">
             <Input
               variant="filled"
               placeholder="Search Movies"

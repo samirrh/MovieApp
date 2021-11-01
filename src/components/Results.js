@@ -15,6 +15,7 @@ import {
   Spacer,
   Center,
   VStack,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
 import { useState } from 'react';
@@ -22,6 +23,7 @@ import axios from 'axios';
 require('dotenv').config();
 
 const Results = ({ movies, query, toParent, nominees }) => {
+  const isScreenBig = useBreakpointValue({ base: false, md: true }); // custom chakra ui hook for finding screen size
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [details, setDetails] = useState({}); // need to put empty state or will break
   const canNominate = (nominee) => {
@@ -52,35 +54,76 @@ const Results = ({ movies, query, toParent, nominees }) => {
               {` Showing results for "${query}"...`}
             </Text>
           </Center>
-          {movies.map((movie) => (
-            <Box key={movie.imdbID} my={3} p={3} rounded="xl" bg="green.200">
-              <HStack>
-                <VStack align="left">
-                  <Text fontWeight="bold">{movie.Title}</Text>
-                  <Text>Released: {movie.Year}</Text>
-                </VStack>
-                <Spacer />
+          {isScreenBig
+            ? movies.map((movie) => (
+                <Box
+                  key={movie.imdbID}
+                  my={3}
+                  p={3}
+                  rounded="xl"
+                  bg="green.200"
+                >
+                  <HStack>
+                    <VStack align="left">
+                      <Text fontWeight="bold">{movie.Title}</Text>
+                      <Text>Released: {movie.Year}</Text>
+                    </VStack>
+                    <Spacer />
 
-                <Button
-                  onClick={() => handleNominate(movie)}
-                  isDisabled={canNominate(movie)}
-                  _hover={{ bg: 'teal.400', color: 'white' }}
+                    <Button
+                      onClick={() => handleNominate(movie)}
+                      isDisabled={canNominate(movie)}
+                      _hover={{ bg: 'teal.400', color: 'white' }}
+                    >
+                      Nominate
+                    </Button>
+                    <Button
+                      colorScheme="teal"
+                      _hover={{
+                        bg: 'green.400',
+                        color: 'white',
+                      }}
+                      onClick={() => handleDetails(movie.imdbID)}
+                    >
+                      Details
+                    </Button>
+                  </HStack>
+                </Box>
+              ))
+            : movies.map((movie) => (
+                <Box
+                  key={movie.imdbID}
+                  my={3}
+                  p={3}
+                  rounded="xl"
+                  bg="green.200"
                 >
-                  Nominate
-                </Button>
-                <Button
-                  colorScheme="teal"
-                  _hover={{
-                    bg: 'green.400',
-                    color: 'white',
-                  }}
-                  onClick={() => handleDetails(movie.imdbID)}
-                >
-                  Details
-                </Button>
-              </HStack>
-            </Box>
-          ))}
+                  <VStack align="left">
+                    <Text fontWeight="bold">{movie.Title}</Text>
+                    <Text>Released: {movie.Year}</Text>
+                  </VStack>
+                  <Spacer />
+                  <HStack my={2}>
+                    <Button
+                      onClick={() => handleNominate(movie)}
+                      isDisabled={canNominate(movie)}
+                      _hover={{ bg: 'teal.400', color: 'white' }}
+                    >
+                      Nominate
+                    </Button>
+                    <Button
+                      colorScheme="teal"
+                      _hover={{
+                        bg: 'green.400',
+                        color: 'white',
+                      }}
+                      onClick={() => handleDetails(movie.imdbID)}
+                    >
+                      Details
+                    </Button>
+                  </HStack>
+                </Box>
+              ))}
 
           <Modal isOpen={isOpen} onClose={onClose}>
             <ModalOverlay />
