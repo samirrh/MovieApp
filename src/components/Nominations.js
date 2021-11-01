@@ -12,6 +12,7 @@ import {
   Center,
 } from '@chakra-ui/react';
 import { UpDownIcon, DragHandleIcon } from '@chakra-ui/icons';
+import history from '../history';
 
 const reorderList = (list, startIndex, endIndex) => {
   const result = Array.from(list);
@@ -137,8 +138,8 @@ export default class Notifications extends Component {
               )}
             </Droppable>
           </DragDropContext>
-          <Fade in={this.props.nominees.length > 1}>
-            <Center my={6}>
+          <Center my={6}>
+            <Fade in={this.props.nominees.length > 1}>
               <Button
                 bg="tomato"
                 color="white"
@@ -147,8 +148,15 @@ export default class Notifications extends Component {
               >
                 Remove All
               </Button>
-            </Center>
-          </Fade>
+            </Fade>
+          </Center>
+          <Center>
+            <Fade in={this.props.nominees.length === 5}>
+              <Button mx={4} onClick={() => history.push('/compare')}>
+                Save Nominees
+              </Button>
+            </Fade>
+          </Center>
         </Box>
       </>
     );
