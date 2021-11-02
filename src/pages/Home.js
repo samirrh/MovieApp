@@ -23,6 +23,7 @@ function Home() {
   const addNomination = (nominated) => {
     if (nominees.length < 5) {
       setNominees([...nominees, nominated]);
+      console.log(nominees);
     } else {
       alert('List Full!');
     }

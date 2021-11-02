@@ -152,7 +152,16 @@ export default class Notifications extends Component {
           </Center>
           <Center>
             <Fade in={this.props.nominees.length === 5}>
-              <Button mx={4} onClick={() => history.push('/compare')}>
+              <Button
+                mx={4}
+                onClick={() => {
+                  localStorage.setItem(
+                    'Movies',
+                    JSON.stringify(this.state.nominees)
+                  );
+                  history.push('/compare');
+                }}
+              >
                 Save Nominees
               </Button>
             </Fade>

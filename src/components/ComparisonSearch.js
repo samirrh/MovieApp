@@ -51,6 +51,9 @@ function ComparisonSearch({ toParent }) {
     setQuery(e.target.value);
   };
 
+  var nominated = localStorage.getItem('Movies');
+  nominated = JSON.parse(nominated);
+
   return (
     <HStack m={6}>
       <Box width={'50%'} mr={3}>
@@ -76,6 +79,9 @@ function ComparisonSearch({ toParent }) {
           Your Nominations
         </Text>
         {/* map nominations from local storage here - or show button to go back and make nominations*/}
+        {nominated.map((nominee) => (
+          <p>{nominee.Title}</p>
+        ))}
       </Box>
     </HStack>
   );
