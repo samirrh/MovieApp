@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Center, Text } from '@chakra-ui/layout';
 import ComparisonGrid from '../components/ComparisonGrid';
+import ComparisonSearch from '../components/ComparisonSearch';
 
 const Compare = () => {
   return (
@@ -20,6 +21,7 @@ const Compare = () => {
         </Text>
 
         <ComparisonGrid />
+        <ComparisonSearch />
       </Box>
     </Center>
   );
