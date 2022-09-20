@@ -6,6 +6,7 @@ Video Demo: https://youtu.be/k3bCMRSJlK0
 ![alt text](https://github.com/samirrh/movieApp/blob/master/example.png?raw=true)
 
 <p>This is started as my submission for the Shopify Fall 2021 Front End Developer Challenge.</p>
+<p>But I went above and beyond so it's a great demonstration of my eye for design.</p>
 <p>It is a web app that allows users to search and nominate movies.</p>
 <p>Had alot of fun building the draggable feature and realized there was much more potential.</p>
 <p>Currently learning Ruby on Rails to add alot more features like comparing nominations to determine a common movie to watch.</p>
